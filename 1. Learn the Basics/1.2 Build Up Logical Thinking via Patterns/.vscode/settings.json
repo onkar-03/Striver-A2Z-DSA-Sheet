@@ -1,0 +1,16 @@
+{
+  "code-runner.clearPreviousOutput": true,
+  "files.associations": {
+    "*.html": "html",
+    "*.ejs": "html",
+    "*.js": "javascript",
+    "*.jsx": "javascriptreact",
+    "*.ts": "typescript",
+    "*.tsx": "typescriptreact",
+    "*.css": "css",
+    "*.scss": "scss",
+    "*.json": "jsonc",
+    "*.md": "markdown",
+    "ostream": "cpp"
+  }
+}
