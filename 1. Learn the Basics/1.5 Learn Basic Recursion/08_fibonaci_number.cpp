@@ -12,6 +12,8 @@ int fib(int number)
 
   // Recursive case: return the sum of the previous two Fibonacci numbers
   return fib(number - 1) + fib(number - 2);
+
+  // Time Complexity: [O(2^N)]
 }
 
 int main()

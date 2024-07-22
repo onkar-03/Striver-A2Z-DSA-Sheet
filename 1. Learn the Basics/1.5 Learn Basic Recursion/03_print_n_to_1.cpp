@@ -13,6 +13,8 @@ void printN(int number)
 
   // Recursive call: decrease number by 1 and call printN again
   printN(number - 1);
+
+  // Time Complexity: [O(N)]
 }
 
 int main()

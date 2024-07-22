@@ -12,6 +12,8 @@ void reverseArray(int i, int arr[], int size)
 
   // Recursively call `reverseArray` with the next index
   reverseArray(i + 1, arr, size);
+
+  // Time Complexity: [O(N)]
 }
 
 int main()

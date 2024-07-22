@@ -20,6 +20,8 @@ void printN(int number)
   // This line is executed during the backtracking phase.
   // When the base case is reached, the function starts returning from each recursive call.
   // As it returns, it prints the current number, resulting in the numbers being printed in ascending order from 1 to N
+
+  // Time Complexity: [O(N)]
 }
 
 int main()

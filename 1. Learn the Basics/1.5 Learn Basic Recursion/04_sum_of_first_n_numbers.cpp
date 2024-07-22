@@ -10,6 +10,8 @@ int sumN(int number)
 
   // Recursive call: add current number to the sum of numbers from 1 to (number - 1)
   return (number + sumN(number - 1));
+
+  // Time Complexity: [O(N)]
 }
 
 int main()

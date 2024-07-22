@@ -10,6 +10,8 @@ int factorialN(int number)
 
   // Recursive call: multiply the current number by the factorial of (number - 1)
   return number * factorialN(number - 1);
+
+  // Time Complexity: [O(N)]
 }
 
 int main()
