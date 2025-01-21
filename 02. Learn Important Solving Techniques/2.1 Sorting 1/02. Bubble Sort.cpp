@@ -6,7 +6,7 @@ using namespace std;
  * - Pushes the Maximum Element to the end of the Array
  * ---------------------
  * Time Complexity:
- * - Best Case: O(n) [When the array is already sorted]
+ * - Best Case: O(n) [When the array is already sorted], The outer Loops only runs and the inner runs only for the first pass hence the overall performance is O(n)
  * - Average Case: O(n^2)
  * - Worst Case: O(n^2)
  * Explanation: In the worst case, the algorithm compares and swaps every adjacent pair in every pass, leading to O(n^2) complexity.
@@ -21,6 +21,9 @@ void bubble_sort(int arr[], int n)
   // Outer loop iterates over the unsorted portion of the array
   for (int i = n - 1; i >= 0; i--)
   {
+    // Flag to detect if a swap occurred
+    bool swapped = false;
+
     // Inner loop compares adjacent elements
     for (int j = 0; j <= i - 1; j++)
     {
@@ -35,7 +38,13 @@ void bubble_sort(int arr[], int n)
 
         // Method 2:
         swap(arr[j], arr[j + 1]);
+
+        swapped = true; // Set swapped flag to true for next iteration
       }
+
+      // If no swaps are made in a pass, the array is already sorted
+      if (!swapped)
+        break;
     }
   }
 
