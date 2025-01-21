@@ -10,7 +10,7 @@ using namespace std;
  * - Average Case: O(n^2)
  * - Worst Case: O(n^2)
  * Explanation: The algorithm always runs two nested loops regardless of the input, resulting in O(n^2).
- *
+ * ---------------------
  * Space Complexity: O(1)
  * Explanation: The algorithm is in-place and does not require any extra space apart from a few variables.
  */

@@ -7,11 +7,11 @@ using namespace std;
  * - Works on Divide & Conquer Principle
  * ---------------------
  * Time Complexity:
- * - Best Case: O(n log n) [Merge sort works efficiently even if the array is already sorted]
+ * - Best Case: O(n * log n) [Merge sort works efficiently even if the array is already sorted]
  * - Average Case: O(n log n)
  * - Worst Case: O(n log n)
  * Explanation: Merge sort divides the array into two halves recursively and then merges them in sorted order. The merging process takes linear time O(n) and since we divide the array in half at each step, the overall time complexity is O(n log n) in all cases.
- *
+ * ---------------------
  * Space Complexity: O(n)
  * Explanation: Merge sort requires additional space for the temporary array used in the merging process. Thus, the space complexity is O(n).
  */

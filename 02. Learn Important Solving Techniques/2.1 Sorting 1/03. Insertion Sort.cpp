@@ -10,7 +10,7 @@ using namespace std;
  * - Worst Case: O(n^2)
  * Explanation: In the worst and average cases, each element is compared and shifted to its correct position within the already sorted portion of the array. This leads to O(n^2) comparisons and swaps.
  * In the best case (sorted array), no shifting is needed, and the algorithm runs in O(n).
- *
+ * ---------------------
  * Space Complexity: O(1)
  * Explanation: Insertion sort is an in-place algorithm that requires no extra space apart from a few variables.
  */

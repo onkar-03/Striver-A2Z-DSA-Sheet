@@ -10,7 +10,7 @@ using namespace std;
  * - Average Case: O(n^2)
  * - Worst Case: O(n^2)
  * Explanation: In the worst case, the algorithm compares and swaps every adjacent pair in every pass, leading to O(n^2) complexity.
- *
+ * ---------------------
  * Space Complexity: O(1)
  * Explanation: Bubble sort is an in-place algorithm that requires no extra space apart from a few variables.
  */
