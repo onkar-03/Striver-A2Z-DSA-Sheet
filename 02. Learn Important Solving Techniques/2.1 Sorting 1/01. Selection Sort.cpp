@@ -3,6 +3,7 @@ using namespace std;
 
 /*
  * Selection Sort Algorithm
+ * - Pushes the Minimum Element to the Start of the Array
  * ------------------------
  * Time Complexity:
  * - Best Case: O(n^2)
@@ -32,10 +33,16 @@ void selection_sort(int arr[], int n)
         mini = j;
       }
     }
+
     // Swap the minimum element with the first element of the unsorted portion
-    int temp = arr[mini];
-    arr[mini] = arr[i];
-    arr[i] = temp;
+
+    // Method 1
+    // int temp = arr[mini];
+    // arr[mini] = arr[i];
+    // arr[i] = temp;
+
+    // Method 2
+    swap(arr[mini], arr[i]);
   }
 
   // Print the sorted array
