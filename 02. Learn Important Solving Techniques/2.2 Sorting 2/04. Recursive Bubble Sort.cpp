@@ -25,7 +25,7 @@ void recursive_bubble_sort(int arr[], int n)
   bool swapped = false;
 
   // Loop through the array to compare adjacent elements
-  { // Loop until the second last element
+  // Loop until the second last elementF
     for (int i = 0; i < n - 1; i++)
       // Check if the current element is greater than the next
       if (arr[i] > arr[i + 1])
@@ -36,7 +36,7 @@ void recursive_bubble_sort(int arr[], int n)
         // Mark that a swap occurred
         swapped = true;
       }
-  }
+
 
   // If no swaps were made in this pass, the array is already sorted
   if (!swapped)
