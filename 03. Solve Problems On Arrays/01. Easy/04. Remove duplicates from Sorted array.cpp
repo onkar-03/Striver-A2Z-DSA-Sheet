@@ -28,15 +28,13 @@ public:
     if (n == 0)
       return 0;
 
-    // i is for the unique elements, j is for iterating
-    // through the array
+    // i is for the unique elements, j is for iterating through the array
     int i = 0, j = 1;
 
     // Loop to compare and shift unique elements
     while (j < n)
     {
-      // If nums[i] is not equal to nums[j],
-      // it's a unique element
+      // If nums[i] is not equal to nums[j], it's a unique element
       if (nums[i] != nums[j])
       {
         // Move the unique element to the correct position
