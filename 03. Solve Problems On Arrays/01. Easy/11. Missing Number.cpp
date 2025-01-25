@@ -51,7 +51,60 @@ public:
 };
 
 /*
- * Approach: Sum Difference Method (Optimal Solution)
+ * Approach-2: (Binary Search)
+ * ---------------------------
+ * Time Complexity: O(nlogn)
+ * - The time complexity comes from the sorting operation, which is O(nlogn).
+ * - The binary search itself runs in O(logn) time, but sorting dominates the complexity.
+ * ---------------------------
+ * Space Complexity: O(1)
+ * - No extra space is used apart from the variables for binary search.
+ */
+class Solution
+{
+public:
+  int missingNumber(vector<int> &nums)
+  {
+    int n = nums.size();
+
+    // Sort the array to prepare for binary search
+    sort(nums.begin(), nums.end());
+
+    int l = 0;
+    int r = n - 1;
+
+    // Default result is n, assuming the missing number is n
+    int result = n;
+
+    // Binary search loop
+    while (l <= r)
+    {
+      int mid = l + (r - l) / 2;
+
+      // If the value at mid is greater than mid, the missing number is in the left half
+      // This condition checks if the element at mid is greater than its index, indicating that
+      // the missing number is in the left half of the array.
+      if (nums[mid] > mid)
+      {
+        // Update the result to the current index
+        result = mid;
+
+        // Move the right pointer to the left half
+        r = mid - 1;
+      }
+      // Move the left pointer to the right half
+      else
+      {
+        l = mid + 1;
+      }
+    }
+
+    return result;
+  }
+};
+
+/*
+ * Approach-3: Sum Difference Method (Optimal Solution)
  * - Calculate the sum of numbers from 0 to n using the formula `sum = n * (n + 1) / 2` or by iterating from 0 to n.
  * - Calculate the sum of all elements in the given array.
  * - The missing number is the difference between the calculated sum (0 to n) and the sum of elements in the array.
@@ -72,12 +125,13 @@ public:
     // Get the size of the array
     int n = nums.size();
 
-    // Calculate the sum of numbers from 0 to n
-    int origSum = 0;
-    for (int i = 0; i <= n; i++)
-    {
-      origSum += i;
-    }
+    // Calculate the sum of numbers from 0 to n using the formula n * (n + 1) / 2
+    int origSum = n * (n + 1) / 2;
+
+    // Alterenate Brute Force approach to get sum of 0 - n numbers is
+    // for(int i = 0; i <= n; i++) {
+    //   origSum += i;
+    // }
 
     // Calculate the sum of elements in the array
     int sum = 0;
@@ -92,7 +146,7 @@ public:
 };
 
 /*
- * Approach-3: XOR Method
+ * Approach-4: XOR Method (Optimal Solution)
  * - XOR all numbers from 0 to n (inclusive) to compute `XOR1`.
  * - XOR all elements in the given array to compute `XOR2`.
  * - The missing number is determined by taking the XOR of `XOR1` and `XOR2`, as numbers appearing in both sequences will cancel out, leaving the missing number.
@@ -133,7 +187,7 @@ public:
 };
 
 /*
- * Approach-4: XOR Method (Modified)
+ * Approach-5: XOR Method "Modified" (Optimal Solution)
  * - XOR all numbers from 0 to n (inclusive) while simultaneously XORing elements of the array in the same loop.
  * - This approach reduces the number of loops by combining the computation of `XOR1` and `XOR2`.
  * - The missing number is determined by taking the XOR of the results, as numbers appearing in both sequences cancel out, leaving the missing number.
