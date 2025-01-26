@@ -102,11 +102,11 @@ public:
 class Solution
 {
 public:
-  int majorityElement(vector<int> &v)
+  int majorityElement(vector<int> &nums)
   {
 
     // size of the given array:
-    int n = v.size();
+    int n = nums.size();
 
     int cnt = 0; // count of occurrences
     int el;      // potential majority element
@@ -118,10 +118,10 @@ public:
       if (cnt == 0)
       {
         cnt = 1;
-        el = v[i]; // Candidate element is v[i]
+        el = nums[i]; // Candidate element is v[i]
       }
       // If the current element is the same as the candidate, increment count
-      else if (el == v[i])
+      else if (el == nums[i])
       {
         cnt++;
       }
@@ -136,7 +136,7 @@ public:
     int cnt1 = 0; // To store the count of the candidate element
     for (int i = 0; i < n; i++)
     {
-      if (v[i] == el)
+      if (nums[i] == el)
       {
         cnt1++; // Counting occurrences of the candidate element
       }

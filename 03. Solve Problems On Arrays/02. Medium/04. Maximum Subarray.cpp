@@ -16,9 +16,9 @@ using namespace std;
 class Solution
 {
 public:
-  int maxSubarraySum(vector<int> &arr)
+  int maxSubarraySum(vector<int> &nums)
   {
-    int n = arr.size();
+    int n = nums.size();
     int maxi = INT_MIN; // Initialize the maximum sum to the smallest possible integer
 
     // Outer loop to select the starting index of the subarray
@@ -30,7 +30,7 @@ public:
       for (int j = i; j < n; j++)
       {
         // Add the current element arr[j] to the sum
-        sum += arr[j];
+        sum += nums[j];
 
         // Update the maximum sum if the current subarray sum is larger
         maxi = max(maxi, sum);
@@ -43,28 +43,34 @@ public:
 
 /*
  * Approach-2: Kandan's Algorithm
- * This code implements Kadane's Algorithm to find the maximum subarray sum in an array.
- * It iterates through the array, maintaining the sum of the current subarray. If the sum becomes negative, it resets the sum to 0, effectively discarding the negative subarrays. The global maximum sum is update whenever the current sum is larger.
+ * This code implements Kadane's Algorithm to find the maximum subarray
+ * sum in an array. It iterates through the array, maintaining the sum
+ * of the current subarray. If the sum becomes negative, it resets the
+ * sum to 0, effectively discarding the negative subarrays. The global
+ * maximum sum is update whenever the current sum is larger.
  * ----------------------------
  * T.C: O(n)
- * - The algorithm iterates through the array once, so the time complexity is O(n), where n is the size of the array.
+ * - The algorithm iterates through the array once, so the time
+ * complexity is O(n), where n is the size of the array.
  * ----------------------------
  * S.C: O(1)
- * - Constant space is used as no additional data structures are utilized.
+ * - Constant space is used as no additional data structures are
+ * utilized.
  */
 
 class Solution
 {
 public:
-  long long maxSubarraySum(vector<int> &arr)
+  int maxSubArray(vector<int> &nums)
   {
-    long long maxi = LONG_MIN; // Initialize the maximum sum to the smallest possible value
+    long long maxi = LONG_MIN; // Initialize the maximum sum to the smallest
+                               // possible value
     long long sum = 0;         // Initialize the sum of the current subarray
 
     // Iterate through the array to calculate the sum of subarrays
-    for (int i = 0; i < arr.size(); i++)
+    for (int i = 0; i < nums.size(); i++)
     {
-      sum += arr[i]; // Add the current element to the sum
+      sum += nums[i]; // Add the current element to the sum
 
       // Update the global maximum sum if the current sum is larger
       maxi = max(maxi, sum);
@@ -78,5 +84,70 @@ public:
 
     // Return the maximum subarray sum
     return maxi;
+  }
+};
+
+///////////////////////////////////////////////////////////////////////////////
+// --- FOLLOW UP QUESTION --- (Return the Subaray as well)
+/*
+ * Approach-3: Kadane's Algorithm with Subarray Tracking
+ * This code implements Kadane's Algorithm to find the maximum subarray sum, with an additional feature of tracking the subarray itself. It maintains the current sum of the subarray, and if the sum becomes negative, it resets the sum to 0. The start and end indices of the subarray are updated whenever the maximum sum is found.
+ * ----------------------------
+ * T.C: O(n)
+ * - The algorithm iterates through the array once, so the time complexity is O(n), where n is the size of the array.
+ * ----------------------------
+ * S.C: O(1)
+ * - Constant space is used for variables `maxi`, `sum`, `start`, `ansStart`, and `ansEnd`.
+ */
+
+class Solution
+{
+public:
+  long long maxSubarraySum(vector<int> &arr)
+  {
+    // Initializing variables:
+    long long maxi = LONG_MIN; // Stores the maximum sum found so far
+    long long sum = 0;         // Stores the current sum of the subarray being processed
+
+    // Variables to track the start and end indices of the maximum subarray:
+    int start = 0;                  // The starting index of the current subarray
+    int ansStart = -1, ansEnd = -1; // The starting and ending indices of the subarray with the maximum sum
+
+    // Traverse through each element of the array:
+    for (int i = 0; i < arr.size(); i++)
+    {
+      // If sum becomes 0, this means we are starting a new subarray from index i:
+      if (sum == 0)
+      {
+        start = i; // Update the starting index of the current subarray
+      }
+
+      sum += arr[i]; // Add the current element to the sum of the subarray
+
+      // If the current sum is greater than the previously found maximum sum, update the maximum sum
+      // and store the start and end indices of this subarray:
+      if (sum > maxi)
+      {
+        maxi = sum;       // Update the maximum sum
+        ansStart = start; // Update the start index of the subarray
+        ansEnd = i;       // Update the end index of the subarray
+      }
+
+      // If the sum becomes negative, reset it to 0 as starting a new subarray is better
+      if (sum < 0)
+      {
+        sum = 0;
+      }
+    }
+
+    // Printing the subarray with the maximum sum:
+    cout << "The subarray is: [";
+    for (int i = ansStart; i <= ansEnd; i++)
+    {
+      cout << arr[i] << " "; // Print each element of the subarray
+    }
+    cout << "]\n"; // End the subarray output
+
+    return maxi; // Return the maximum sum found
   }
 };
