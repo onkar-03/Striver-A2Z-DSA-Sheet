@@ -20,8 +20,11 @@ class Solution
 public:
   int maxProfit(vector<int> &arr)
   {
-    int maxPro = 0;     // Variable to store the maximum profit
-    int n = arr.size(); // Get the size of the array
+    // Variable to store the maximum profit
+    int maxPro = INT_MIN;
+
+    // Get the size of the array
+    int n = arr.size();
 
     // Loop through every possible pair of days (i, j)
     for (int i = 0; i < n; i++)
@@ -61,12 +64,16 @@ class Solution
 public:
   int maxProfit(vector<int> &arr)
   {
-    int maxPro = 0;         // Variable to store the maximum profit
-    int minPrice = INT_MAX; // Initialize the minimum price to the highest possible value
+    // Variable to store the maximum profit
+    int maxPro = 0;
+
+    // Initialize the minimum price to the highest possible value
+    int minPrice = INT_MAX;
 
     // Loop through the array to find the minimum price and maximum profit
     for (int i = 0; i < arr.size(); i++)
     {
+      // For now take the First Element of Array as the minimum price
       // Update the minimum price to the lowest price encountered so far
       minPrice = min(minPrice, arr[i]);
 

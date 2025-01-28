@@ -9,7 +9,7 @@ using namespace std;
  * Time Complexity: O(2*n)
  * - We iterate over the input array twice (once to segregate and once to rearrange), resulting in O(n) time complexity, where n is the size of the array.
  * ----------------------------
- * Space Complexity: O(n)
+ * Space Complexity: O(2*n)
  * - We use two extra vectors (positive and negative), each of size O(n/2), so the space complexity is O(n).
  *
  */
@@ -50,7 +50,8 @@ public:
 };
 
 /*
- * Approach-1: Better Appraoch using Sinlge Iteration
+ * Approach-1: Index Based Approach Better Appraoch using Sinlge Iteration
+ * When we are said Number iof Positives == Number of Negetives
  * 1. Initialize two pointers, `pos` for placing positive numbers at even indices and `neg` for placing negative numbers at odd indices.
  * 2. Traverse through the given array:
  *    - If the current element is positive, place it at the position pointed by `pos` and increment `pos` by 2.

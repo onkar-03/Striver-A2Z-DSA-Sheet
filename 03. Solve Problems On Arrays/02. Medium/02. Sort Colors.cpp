@@ -107,6 +107,7 @@ public:
      * - low: It points to the boundary where all elements before it are 0s.
      * - mid: It traverses the array and is responsible for sorting elements into their correct position.
      * - high: It points to the boundary where all elements after it are 2s.
+     * Initially we take as entire array is unsorted hence we put mid & high at 0 (n - 1)
      *
      * The array is divided into four sections:
      * 1. Elements from 0 to low - 1 (inclusive) are all 0s.

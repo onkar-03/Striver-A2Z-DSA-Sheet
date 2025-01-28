@@ -43,11 +43,9 @@ public:
 
 /*
  * Approach-2: Kandan's Algorithm
- * This code implements Kadane's Algorithm to find the maximum subarray
- * sum in an array. It iterates through the array, maintaining the sum
- * of the current subarray. If the sum becomes negative, it resets the
- * sum to 0, effectively discarding the negative subarrays. The global
- * maximum sum is update whenever the current sum is larger.
+ * This code implements Kadane's Algorithm to find the maximum subarray sum in an array. * It iterates through the array, maintaining the sum of the current subarray.
+ * If the sum becomes negative, it resets the sum to 0, effectively discarding the negative subarrays as max Sum won't be a negetive value + something as it would decrease the overall value of the sum
+ * The global  maximum sum is update whenever the current sum is larger.
  * ----------------------------
  * T.C: O(n)
  * - The algorithm iterates through the array once, so the time
@@ -63,9 +61,12 @@ class Solution
 public:
   int maxSubArray(vector<int> &nums)
   {
-    long long maxi = LONG_MIN; // Initialize the maximum sum to the smallest
-                               // possible value
-    long long sum = 0;         // Initialize the sum of the current subarray
+    // Initialize the maximum sum to the smallest
+    // possible value
+    long long maxi = LONG_MIN;
+
+    // Initialize the sum of the current subarray
+    long long sum = 0;
 
     // Iterate through the array to calculate the sum of subarrays
     for (int i = 0; i < nums.size(); i++)
@@ -91,7 +92,8 @@ public:
 // --- FOLLOW UP QUESTION --- (Return the Subaray as well)
 /*
  * Approach-3: Kadane's Algorithm with Subarray Tracking
- * This code implements Kadane's Algorithm to find the maximum subarray sum, with an additional feature of tracking the subarray itself. It maintains the current sum of the subarray, and if the sum becomes negative, it resets the sum to 0. The start and end indices of the subarray are updated whenever the maximum sum is found.
+ * This code implements Kadane's Algorithm to find the maximum subarray sum, with an additional feature of tracking the subarray itself.
+ * It maintains the current sum of the subarray, and if the sum becomes negative, it resets the sum to 0. The start and end indices of the subarray are updated whenever the maximum sum is found.
  * ----------------------------
  * T.C: O(n)
  * - The algorithm iterates through the array once, so the time complexity is O(n), where n is the size of the array.
