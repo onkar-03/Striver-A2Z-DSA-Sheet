@@ -13,7 +13,7 @@ using namespace std;
  * - Inserting into the set takes O(log(n)) per operation.
  * --------------------
  * S.C: O(2 * n)
- * - The set stores unique triplets, which can be O(n^2) in the worst case.
+ * - The set stores unique triplets, which can be O(2 * n) in the worst case, as we store the triplets in the set and also in the ans vector also 'n' is the number of triplets we get.
  */
 class Solution
 {
@@ -65,7 +65,7 @@ public:
  * - Inserting into the set takes O(log(n)) per operation.
  * --------------------
  * S.C: O(2 * n)
- * - The set stores unique triplets, which can be O(n^2) in the worst case.
+ * - The set stores unique triplets, which can be O(2 * n) in the worst case, as we store the triplets in the set and also in the ans vector also 'n' is the number of triplets we get.
  */
 class Solution
 {
@@ -78,7 +78,8 @@ public:
     // Iterate over the array and fix one element
     for (int i = 0; i < n; i++)
     {
-      unordered_set<int> hashset; // Hashset for checking complements
+      // Hashset for checking complements
+      unordered_set<int> hashset;
 
       // Iterate for the second element
       for (int j = i + 1; j < n; j++)
@@ -97,7 +98,9 @@ public:
           // Insert into the set
           st.insert(temp);
         }
-        hashset.insert(nums[j]); // Store current element in the hashset
+
+        // Store current element in the hashset
+        hashset.insert(nums[j]);
       }
     }
 
@@ -114,6 +117,7 @@ public:
  * - Sort the array first to efficiently use two pointers.
  * - Iterate through the array, and for each element, use two pointers to find pairs that sum to the negative of the current element.
  * - Skip duplicate elements to avoid repeating triplets.
+ * - We eliminated HasSet usage and set data structure here which were used in previous approaches
  * --------------------
  * T.C: O(n^2)
  * - Sorting the array takes O(n log n).
