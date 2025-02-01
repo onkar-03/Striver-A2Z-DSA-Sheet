@@ -156,6 +156,13 @@ public:
         // Use two-pointer technique to find pairs
         while (k < l)
         {
+          /*
+           * To prevent signed integer overflow when summing large numbers, we cast each of the integers
+           * (nums[i], nums[j], nums[k], nums[l]) to `long long`. This ensures that the sum can hold
+           * larger values that exceed the range of the `int` data type.
+           * The maximum value for an int is typically 2^31 - 1 (around 2 billion), while long long can
+           * hold much larger values (up to 2^63 - 1), preventing overflow.
+           */
           long long sum = nums[i] + nums[j] + nums[k] + nums[l];
 
           // If the sum matches the target, add the quadruplet
@@ -186,5 +193,5 @@ public:
     }
 
     return ans;
-    }
+  }
 };

@@ -51,19 +51,21 @@ public:
 };
 
 /*
- * Approach-2: Optimal Search usign Hash Map
- * We calculate the prefix sum as we traverse the array. For each element, we calculate the difference between
- * the current prefix sum and the target sum `k`. If this difference has been encountered before (exists in the map),
- * it means there exists a subarray whose sum is equal to `k`. We increment the count accordingly.
- * We also store the current prefix sum in the map to keep track of how many times each sum has occurred.
- *
+ * Approach-2: Optimal Search using Hash Map
+ * - We calculate the prefix sum as we traverse the array.
+ * - For each element, we calculate the difference between the current prefix sum (`preSum`) and the target sum (`k`).
+ * - If this difference (`preSum - k`) has been encountered before (exists in the map), it means there exists a subarray
+ *   whose sum is equal to `k`. This is because:
+ *   - Let's assume `x` is the prefix sum at some previous index, and at the current index, the prefix sum is `preSum`.
+ *   - If `preSum - x = k`, then it means the sum of the subarray starting right after index `x` to the current index is equal to `k`.
+ * - We increment the count accordingly whenever we find such a difference in the map.
+ * - Additionally, we store the current prefix sum in the map to keep track of how many times each sum has occurred
+ * ----------------------------
  * T.C: O(n)
  * - We only traverse the array once, and each lookup and update in the map is O(1) on average, so the time complexity is O(n).
- *
+ * ----------------------------
  * S.C: O(n)
  * - In the worst case, the map will store the prefix sum for every element, leading to a space complexity of O(n).
- *
- * ----------------------------
  */
 
 class Solution

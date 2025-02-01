@@ -77,6 +77,7 @@ public:
       maxi = max(maxi, sum);
 
       // If the sum becomes negative, reset it to 0
+      // This is becasuse we want to maximize the Sum of Subarrays and a Negetive value will eventually decrease the Sum of the Subarray hence we make the Sum as Zero again and start fresh
       if (sum < 0)
       {
         sum = 0;
